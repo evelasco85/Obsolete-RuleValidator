@@ -1,0 +1,1236 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Article">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Url" Type="nvarchar" MaxLength="250" />
+          <Property Name="ArticleNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="PurchasePrice" Type="decimal" Precision="16" Scale="2" />
+          <Property Name="Unit" Type="nvarchar" MaxLength="10" />
+          <Property Name="VAT" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="Expired" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Currency">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Url" Type="nvarchar" MaxLength="250" />
+          <Property Name="BuyRate" Type="decimal" Precision="14" Scale="4" />
+          <Property Name="Code" Type="nchar" MaxLength="3" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+          <Property Name="SellRate" Type="decimal" Precision="14" Scale="4" />
+          <Property Name="Unit" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Url" Type="nvarchar" MaxLength="250" />
+          <Property Name="City" Type="nvarchar" MaxLength="1024" />
+          <Property Name="Comments" Type="nvarchar" MaxLength="1024" />
+          <Property Name="CountryCode" Type="nchar" MaxLength="2" />
+          <Property Name="CustomerNumber" Type="nvarchar" MaxLength="450" />
+          <Property Name="Name" Type="nvarchar" MaxLength="1024" />
+          <Property Name="OrganizationNumber" Type="nvarchar" MaxLength="30" />
+          <Property Name="HoldingCompany" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ExportedItem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="File_Id" Type="int" Nullable="false" />
+          <Property Name="Consignment_Number" Type="nvarchar" MaxLength="50" />
+          <Property Name="Shipping_Company_Name" Type="nvarchar" MaxLength="1024" />
+          <Property Name="Shipping_Postal_Code" Type="nvarchar" MaxLength="1024" />
+          <Property Name="Shipping_City" Type="nvarchar" MaxLength="1024" />
+          <Property Name="Shipping_Country_Code" Type="nchar" MaxLength="2" />
+          <Property Name="Receiving_Company_Name" Type="nvarchar" MaxLength="1024" />
+          <Property Name="Receiving_Postal_Code" Type="nvarchar" MaxLength="1024" />
+          <Property Name="Receiving_City" Type="nvarchar" MaxLength="1024" />
+          <Property Name="Receiving_Country_Code" Type="nchar" MaxLength="2" />
+          <Property Name="Total_Number_Of_Packages" Type="decimal" Precision="16" Scale="2" />
+          <Property Name="Total_Weight" Type="decimal" Precision="16" Scale="2" />
+          <Property Name="Total_Volume" Type="decimal" Precision="16" Scale="2" />
+          <Property Name="Total_Loading_Meters" Type="decimal" Precision="16" Scale="2" />
+          <Property Name="Total_Pallet_Space" Type="decimal" Precision="16" Scale="2" />
+          <Property Name="Date_Registered" Type="datetime" />
+          <Property Name="Shippers_Reference" Type="nvarchar" MaxLength="80" />
+          <Property Name="Consignee_Reference" Type="nvarchar" MaxLength="80" />
+          <Property Name="Calculated_Price" Type="decimal" Precision="16" Scale="2" />
+          <Property Name="Timestamp" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="File">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="filename" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Group" Type="nvarchar" MaxLength="250" />
+          <Property Name="remarks" Type="nvarchar(max)" />
+          <Property Name="group_customer" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="rules_applied" Type="bit" Nullable="false" />
+          <Property Name="exported" Type="bit" Nullable="false" />
+          <Property Name="uploadedDateTime" Type="datetime" />
+          <Property Name="ImportedDateTime" Type="datetime" />
+          <Property Name="ExportedDateTime" Type="datetime" />
+          <Property Name="Locked" Type="bit" Nullable="false" />
+          <Property Name="Deleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ImportedItem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="File_Id" Type="int" Nullable="false" />
+          <Property Name="Consignment_Number" Type="nvarchar" MaxLength="50" />
+          <Property Name="Shipping_Company_Name" Type="nvarchar" MaxLength="1024" />
+          <Property Name="Shipping_Postal_Code" Type="nvarchar" MaxLength="1024" />
+          <Property Name="Shipping_City" Type="nvarchar" MaxLength="1024" />
+          <Property Name="Shipping_Country_Code" Type="nchar" MaxLength="2" />
+          <Property Name="Receiving_Company_Name" Type="nvarchar" MaxLength="1024" />
+          <Property Name="Receiving_Postal_Code" Type="nvarchar" MaxLength="1024" />
+          <Property Name="Receiving_City" Type="nvarchar" MaxLength="1024" />
+          <Property Name="Receiving_Country_Code" Type="nchar" MaxLength="2" />
+          <Property Name="Total_Number_Of_Packages" Type="decimal" Precision="16" Scale="2" />
+          <Property Name="Total_Weight" Type="decimal" Precision="16" Scale="2" />
+          <Property Name="Total_Volume" Type="decimal" Precision="16" Scale="2" />
+          <Property Name="Total_Loading_Meters" Type="decimal" Precision="16" Scale="2" />
+          <Property Name="Total_Pallet_Space" Type="decimal" Precision="16" Scale="2" />
+          <Property Name="Date_Registered" Type="datetime" />
+          <Property Name="Shippers_Reference" Type="nvarchar" MaxLength="80" />
+          <Property Name="Consignee_Reference" Type="nvarchar" MaxLength="80" />
+          <Property Name="Calculated_Price" Type="decimal" Precision="16" Scale="2" />
+        </EntityType>
+        <EntityType Name="Invoice">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Customer_Name" Type="nvarchar" MaxLength="1024" Nullable="false" />
+          <Property Name="Paying_Site" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="Invoice_Template" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Responsible_Site" Type="nvarchar" MaxLength="450" Nullable="false" />
+          <Property Name="Category" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Currency_Code" Type="nchar" MaxLength="3" Nullable="false" />
+          <Property Name="Article_Number" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Article_Description" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Total_Number_Of_Packages" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+          <Property Name="No_Of_Transactions" Type="int" />
+          <Property Name="Price" Type="decimal" Precision="14" Scale="4" />
+          <Property Name="VAT" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="Net" Type="decimal" Precision="14" Scale="4" />
+          <Property Name="Consignment_Number" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Fortnox_Invoice_Id" Type="nchar" MaxLength="10" />
+          <Property Name="File_Id" Type="int" Nullable="false" />
+          <Property Name="ExportedItem_Id" Type="bigint" Nullable="false" />
+          <Property Name="Transaction_Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="Currency_BuyRate" Type="decimal" Precision="14" Scale="6" />
+        </EntityType>
+        <EntityType Name="RuleList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Group" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Number" Type="int" Nullable="false" />
+          <Property Name="Shipping_Country_Code" Type="nchar" MaxLength="2" />
+          <Property Name="Receiving_Country_Code" Type="nchar" MaxLength="2" />
+          <Property Name="Shipping_Company" Type="nvarchar" MaxLength="250" />
+          <Property Name="Receving_Company" Type="nvarchar" MaxLength="250" />
+          <Property Name="Shipping_PostalCode" Type="nvarchar" MaxLength="1024" />
+          <Property Name="Receiving_PostalCode" Type="nvarchar" MaxLength="1024" />
+          <Property Name="Responsible_Site" Type="nvarchar" MaxLength="1024" />
+          <Property Name="Paying_Site" Type="nvarchar" MaxLength="1024" />
+          <Property Name="Category" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Article_Number" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Article_Description" Type="nvarchar" MaxLength="200" />
+          <Property Name="Transaction_Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Currency" Type="nchar" MaxLength="3" Nullable="false" />
+          <Property Name="Invoice_Template" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="VAT" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Settings">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Value" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <Association Name="ExportedItem_fk_File_Id">
+          <End Role="File" Type="Self.File" Multiplicity="1" />
+          <End Role="ExportedItem" Type="Self.ExportedItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="File">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ExportedItem">
+              <PropertyRef Name="File_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ImportedItem_fk_File_Id">
+          <End Role="File" Type="Self.File" Multiplicity="1" />
+          <End Role="ImportedItem" Type="Self.ImportedItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="File">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ImportedItem">
+              <PropertyRef Name="File_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="InvHedDetWithAdditionTransaction" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="fileId" Type="int" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="Customer_Name" Type="nvarchar" MaxLength="1024" />
+                <Property Name="Paying_Site" Type="nvarchar" MaxLength="450" Nullable="false" />
+                <Property Name="Invoice_Template" Type="nvarchar" MaxLength="100" Nullable="false" />
+                <Property Name="Category" Type="nvarchar" MaxLength="200" Nullable="false" />
+                <Property Name="Currency_Code" Type="nchar" MaxLength="3" />
+                <Property Name="Article_Number" Type="nvarchar" MaxLength="50" Nullable="false" />
+                <Property Name="Article_Description" Type="nvarchar" MaxLength="200" />
+                <Property Name="No_Of_Transactions" Type="int" />
+                <Property Name="Price" Type="decimal" Precision="38" Scale="4" />
+                <Property Name="VAT" Type="decimal" Precision="5" Scale="2" />
+                <Property Name="Net" Type="decimal" Precision="38" Scale="6" />
+                <Property Name="File_Id" Type="int" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="InvoiceHeaderDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="fileId" Type="int" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="Customer_Name" Type="nvarchar" MaxLength="1024" />
+                <Property Name="Paying_Site" Type="nvarchar" MaxLength="450" Nullable="false" />
+                <Property Name="Invoice_Template" Type="nvarchar" MaxLength="100" Nullable="false" />
+                <Property Name="Category" Type="nvarchar" MaxLength="50" Nullable="false" />
+                <Property Name="Currency_Code" Type="nchar" MaxLength="3" />
+                <Property Name="Article_Number" Type="nvarchar" MaxLength="50" Nullable="false" />
+                <Property Name="Article_Description" Type="nvarchar" MaxLength="200" />
+                <Property Name="File_Id" Type="int" Nullable="false" />
+                <Property Name="No_Of_Transactions" Type="int" />
+                <Property Name="Price" Type="decimal" Precision="38" Scale="4" />
+                <Property Name="VAT" Type="decimal" Precision="5" Scale="2" />
+                <Property Name="Net" Type="decimal" Precision="38" Scale="6" />
+                <Property Name="Transaction_Type" Type="nvarchar" MaxLength="50" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="sp_GetInvalidInvoiceHeaderDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="fileId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_GetInvHedDetWithAdditionTransaction" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="fileId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_GetInvoiceRawData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="fileId" Type="int" Mode="In" />
+          <Parameter Name="payingSite" Type="nvarchar" Mode="In" />
+          <Parameter Name="invoiceTemplate" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_ReorderNumber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="currentGroupName" Type="nvarchar" Mode="In" />
+          <Parameter Name="currentRowNumber" Type="int" Mode="In" />
+          <Parameter Name="incrementBit" Type="bit" Mode="In" />
+        </Function>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="Article" EntityType="Self.Article" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Currency" EntityType="Self.Currency" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ExportedItem" EntityType="Self.ExportedItem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="File" EntityType="Self.File" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ImportedItem" EntityType="Self.ImportedItem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Invoice" EntityType="Self.Invoice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RuleList" EntityType="Self.RuleList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Settings" EntityType="Self.Settings" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="ExportedItem_fk_File_Id" Association="Self.ExportedItem_fk_File_Id">
+            <End Role="File" EntitySet="File" />
+            <End Role="ExportedItem" EntitySet="ExportedItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="ImportedItem_fk_File_Id" Association="Self.ImportedItem_fk_File_Id">
+            <End Role="File" EntitySet="File" />
+            <End Role="ImportedItem" EntitySet="ImportedItem" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <FunctionImport Name="sp_GetInvalidInvoiceHeaderDetail" ReturnType="Collection(Model.sp_GetInvalidInvoiceHeaderDetail_Result)">
+          <Parameter Name="fileId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_GetInvoiceRawData" ReturnType="Collection(Model.sp_GetInvoiceRawData_Result)">
+            <Parameter Name="fileId" Mode="In" Type="Int32" />
+            <Parameter Name="payingSite" Mode="In" Type="String" />
+            <Parameter Name="invoiceTemplate" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="Articles" EntityType="Model.Article" />
+          <EntitySet Name="AspNetRoles" EntityType="Model.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Model.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Model.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="Model.AspNetUser" />
+          <EntitySet Name="Customers" EntityType="Model.Customer" />
+          <EntitySet Name="Files" EntityType="Model.File" />
+          <EntitySet Name="ImportedItems" EntityType="Model.ImportedItem" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaim" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogin" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="ImportedItem_fk_File_Id" Association="Model.ImportedItem_fk_File_Id">
+            <End Role="File" EntitySet="Files" />
+            <End Role="ImportedItem" EntitySet="ImportedItems" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Model.AspNetUserRoles">
+            <End Role="AspNetRole" EntitySet="AspNetRoles" />
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <EntitySet Name="Settings" EntityType="Model.Setting" />
+          <EntitySet Name="ExportedItems" EntityType="Model.ExportedItem" />
+          <AssociationSet Name="ExportedItem_fk_File_Id" Association="Model.ExportedItem_fk_File_Id">
+            <End Role="File" EntitySet="Files" />
+            <End Role="ExportedItem" EntitySet="ExportedItems" />
+          </AssociationSet>
+          <FunctionImport Name="sp_GetInvHedDetWithAdditionTransaction" ReturnType="Collection(Model.sp_GetInvHedDetWithAdditionTransaction_Result)">
+          <Parameter Name="fileId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="InvoiceHeaderDetail" IsComposable="true" ReturnType="Collection(Model.InvoiceHeaderDetail_Result1)">
+          <Parameter Name="fileId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="RuleLists" EntityType="Model.RuleList" />
+          <FunctionImport Name="InvHedDetWithAdditionTransaction" IsComposable="true" ReturnType="Collection(Model.InvHedDetWithAdditionTransaction_Result2)">
+          <Parameter Name="fileId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="Currencies" EntityType="Model.Currency" />
+          <EntitySet Name="Invoices" EntityType="Model.Invoice" />
+          <FunctionImport Name="sp_ReorderNumber" ReturnType="Collection(Model.sp_ReorderNumber_Result)">
+            <Parameter Name="currentGroupName" Mode="In" Type="String" />
+            <Parameter Name="currentRowNumber" Mode="In" Type="Int32" />
+            <Parameter Name="incrementBit" Mode="In" Type="Boolean" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="InvHedDetWithAdditionTransaction_Result">
+          <Property Type="String" Name="Customer_Name" Nullable="true" MaxLength="1024" />
+          <Property Type="String" Name="Paying_Site" Nullable="false" MaxLength="450" />
+          <Property Type="String" Name="Invoice_Template" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Category" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Currency_Code" Nullable="true" MaxLength="3" />
+          <Property Type="String" Name="Article_Number" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Article_Description" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="No_Of_Transactions" Nullable="true" />
+          <Property Type="Decimal" Name="Price" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="VAT" Nullable="true" Precision="5" Scale="2" />
+          <Property Type="Decimal" Name="Net" Nullable="true" Precision="38" Scale="6" />
+          <Property Type="Int32" Name="File_Id" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="InvoiceHeaderDetail_Result">
+          <Property Type="String" Name="Customer_Name" Nullable="true" MaxLength="1024" />
+          <Property Type="String" Name="Paying_Site" Nullable="false" MaxLength="450" />
+          <Property Type="String" Name="Invoice_Template" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Category" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Currency_Code" Nullable="true" MaxLength="3" />
+          <Property Type="String" Name="Article_Number" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Article_Description" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="File_Id" Nullable="false" />
+          <Property Type="Int32" Name="No_Of_Transactions" Nullable="true" />
+          <Property Type="Decimal" Name="Price" Nullable="true" Precision="38" Scale="2" />
+          <Property Type="Decimal" Name="VAT" Nullable="true" Precision="5" Scale="2" />
+          <Property Type="Decimal" Name="Net" Nullable="true" Precision="38" Scale="6" />
+        </ComplexType>
+        <ComplexType Name="sp_GetInvHedDetWithAdditionTransaction_Result">
+          <Property Type="String" Name="Customer_Name" Nullable="true" MaxLength="1024" />
+          <Property Type="String" Name="Paying_Site" Nullable="false" MaxLength="450" />
+          <Property Type="String" Name="Invoice_Template" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Category" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Currency_Code" Nullable="true" MaxLength="3" />
+          <Property Type="String" Name="Article_Number" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Article_Description" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="No_Of_Transactions" Nullable="true" />
+          <Property Type="Decimal" Name="Price" Nullable="true" Precision="16" Scale="4" />
+          <Property Type="Decimal" Name="VAT" Nullable="true" Precision="5" Scale="2" />
+          <Property Type="Decimal" Name="Net" Nullable="true" Precision="16" Scale="4" />
+          <Property Type="Int32" Name="File_Id" Nullable="true" />
+          <Property Type="Decimal" Name="PriceConversion" Nullable="true" Precision="16" Scale="4" />
+          <Property Type="Decimal" Name="NetConversion" Nullable="true" Precision="16" Scale="4" />
+        </ComplexType>
+        <ComplexType Name="sp_GetInvalidInvoiceHeaderDetail_Result">
+          <Property Type="String" Name="FortnoxList" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="Value" Nullable="false" MaxLength="450" />
+        </ComplexType>
+        <ComplexType Name="sp_GetInvoiceRawData_Result">
+          <Property Type="Int64" Name="Id" Nullable="false" />
+          <Property Type="Int32" Name="File_Id" Nullable="false" />
+          <Property Type="String" Name="Consignment_Number" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Shipping_Company_Name" Nullable="true" MaxLength="1024" />
+          <Property Type="String" Name="Shipping_Postal_Code" Nullable="true" MaxLength="1024" />
+          <Property Type="String" Name="Shipping_City" Nullable="true" MaxLength="1024" />
+          <Property Type="String" Name="Shipping_Country_Code" Nullable="true" MaxLength="2" />
+          <Property Type="String" Name="Receiving_Company_Name" Nullable="true" MaxLength="1024" />
+          <Property Type="String" Name="Receiving_Postal_Code" Nullable="true" MaxLength="1024" />
+          <Property Type="String" Name="Receiving_City" Nullable="true" MaxLength="1024" />
+          <Property Type="String" Name="Receiving_Country_Code" Nullable="true" MaxLength="2" />
+          <Property Type="Decimal" Name="Total_Number_Of_Packages" Nullable="true" Precision="16" Scale="2" />
+          <Property Type="Decimal" Name="Total_Weight" Nullable="true" Precision="16" Scale="2" />
+          <Property Type="Decimal" Name="Total_Volume" Nullable="true" Precision="16" Scale="2" />
+          <Property Type="Decimal" Name="Total_Loading_Meters" Nullable="true" Precision="16" Scale="2" />
+          <Property Type="Decimal" Name="Total_Pallet_Space" Nullable="true" Precision="16" Scale="2" />
+          <Property Type="DateTime" Name="Date_Registered" Nullable="true" Precision="23" />
+          <Property Type="String" Name="Shippers_Reference" Nullable="true" MaxLength="80" />
+          <Property Type="String" Name="Consignee_Reference" Nullable="true" MaxLength="80" />
+          <Property Type="Decimal" Name="Calculated_Price" Nullable="true" Precision="16" Scale="2" />
+          <Property Type="String" Name="Paying_Site" Nullable="false" MaxLength="450" />
+          <Property Type="String" Name="Responsible_Site" Nullable="false" MaxLength="450" />
+          <Property Type="String" Name="Invoice_Template" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Customer_Name" Nullable="false" MaxLength="1024" />
+          <Property Type="String" Name="Category" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Currency_Code" Nullable="false" MaxLength="3" />
+          <Property Type="String" Name="Article_Number" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Article_Description" Nullable="false" MaxLength="200" />
+          <Property Type="Int32" Name="No_Of_Transactions" Nullable="true" />
+          <Property Type="Decimal" Name="Price" Nullable="false" Precision="16" Scale="2" />
+          <Property Type="Decimal" Name="VAT" Nullable="true" Precision="5" Scale="2" />
+          <Property Type="Decimal" Name="Net" Nullable="false" Precision="16" Scale="2" />
+          <Property Type="String" Name="Fortnox_Invoice_Id" Nullable="true" MaxLength="10" />
+          <Property Type="Int64" Name="ExportedItem_Id" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="Article">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Url" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ArticleNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="PurchasePrice" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="Unit" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="VAT" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="Expired" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Model.AspNetUserRoles" FromRole="AspNetRole" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaim" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ProviderKey" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogin" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserClaim" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUser" ToRole="AspNetUserLogin" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Model.AspNetUserRoles" FromRole="AspNetUser" ToRole="AspNetRole" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Url" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="Comments" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="CountryCode" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+          <Property Name="CustomerNumber" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="OrganizationNumber" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="HoldingCompany" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="File">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="filename" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Group" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="group_customer" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="rules_applied" Type="Boolean" Nullable="false" />
+          <Property Name="exported" Type="Boolean" Nullable="false" />
+          <Property Name="uploadedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="ImportedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="ExportedDateTime" Type="DateTime" Precision="3" />
+          <Property Name="Locked" Type="Boolean" Nullable="false" />
+          <Property Name="Deleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="ImportedItems" Relationship="Model.ImportedItem_fk_File_Id" FromRole="File" ToRole="ImportedItem" />
+          <NavigationProperty Name="ExportedItems" Relationship="Model.ExportedItem_fk_File_Id" FromRole="File" ToRole="ExportedItem" />
+        </EntityType>
+        <EntityType Name="ImportedItem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="File_Id" Type="Int32" Nullable="false" />
+          <Property Name="Consignment_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Shipping_Company_Name" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="Shipping_Postal_Code" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="Shipping_City" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="Shipping_Country_Code" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+          <Property Name="Receiving_Company_Name" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="Receiving_Postal_Code" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="Receiving_City" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="Receiving_Country_Code" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+          <Property Name="Total_Number_Of_Packages" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="Total_Weight" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="Total_Volume" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="Total_Loading_Meters" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="Total_Pallet_Space" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="Date_Registered" Type="DateTime" Precision="3" />
+          <Property Name="Shippers_Reference" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="Consignee_Reference" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="Calculated_Price" Type="Decimal" Precision="16" Scale="2" />
+          <NavigationProperty Name="File" Relationship="Model.ImportedItem_fk_File_Id" FromRole="ImportedItem" ToRole="File" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Type="Model.AspNetUser" Role="AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Model.AspNetUserClaim" Role="AspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaim">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Type="Model.AspNetUser" Role="AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Model.AspNetUserLogin" Role="AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogin">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ImportedItem_fk_File_Id">
+          <End Type="Model.File" Role="File" Multiplicity="1" />
+          <End Type="Model.ImportedItem" Role="ImportedItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="File">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ImportedItem">
+              <PropertyRef Name="File_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Type="Model.AspNetRole" Role="AspNetRole" Multiplicity="*" />
+          <End Type="Model.AspNetUser" Role="AspNetUser" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Setting">
+          <Key>
+            <PropertyRef Name="Code" />
+          </Key>
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Value" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ExportedItem">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="File_Id" Type="Int32" Nullable="false" />
+          <Property Name="Consignment_Number" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Shipping_Company_Name" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="Shipping_Postal_Code" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="Shipping_City" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="Shipping_Country_Code" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+          <Property Name="Receiving_Company_Name" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="Receiving_Postal_Code" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="Receiving_City" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="Receiving_Country_Code" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+          <Property Name="Total_Number_Of_Packages" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="Total_Weight" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="Total_Volume" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="Total_Loading_Meters" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="Total_Pallet_Space" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="Date_Registered" Type="DateTime" Precision="3" />
+          <Property Name="Shippers_Reference" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="Consignee_Reference" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="Calculated_Price" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="Timestamp" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="File" Relationship="Model.ExportedItem_fk_File_Id" FromRole="ExportedItem" ToRole="File" />
+        </EntityType>
+        <Association Name="ExportedItem_fk_File_Id">
+          <End Type="Model.File" Role="File" Multiplicity="1" />
+          <End Type="Model.ExportedItem" Role="ExportedItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="File">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ExportedItem">
+              <PropertyRef Name="File_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="InvHedDetWithAdditionTransaction_Result1">
+          <Property Type="String" Name="Customer_Name" Nullable="true" MaxLength="1024" />
+          <Property Type="String" Name="Paying_Site" Nullable="false" MaxLength="450" />
+          <Property Type="String" Name="Invoice_Template" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Category" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="Currency_Code" Nullable="true" MaxLength="3" />
+          <Property Type="String" Name="Article_Number" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Article_Description" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="No_Of_Transactions" Nullable="true" />
+          <Property Type="Decimal" Name="Price" Nullable="true" Precision="38" Scale="4" />
+          <Property Type="Decimal" Name="VAT" Nullable="true" Precision="5" Scale="2" />
+          <Property Type="Decimal" Name="Net" Nullable="true" Precision="38" Scale="6" />
+          <Property Type="Int32" Name="File_Id" Nullable="true" />
+          <Property Type="String" Name="Transaction_Type" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="InvoiceHeaderDetail_Result1">
+          <Property Type="String" Name="Customer_Name" Nullable="true" MaxLength="1024" />
+          <Property Type="String" Name="Paying_Site" Nullable="false" MaxLength="450" />
+          <Property Type="String" Name="Invoice_Template" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Category" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Currency_Code" Nullable="true" MaxLength="3" />
+          <Property Type="String" Name="Article_Number" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Article_Description" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="File_Id" Nullable="false" />
+          <Property Type="Int32" Name="No_Of_Transactions" Nullable="true" />
+          <Property Type="Decimal" Name="Price" Nullable="true" Precision="38" Scale="4" />
+          <Property Type="Decimal" Name="VAT" Nullable="true" Precision="5" Scale="2" />
+          <Property Type="Decimal" Name="Net" Nullable="true" Precision="38" Scale="6" />
+          <Property Type="String" Name="Transaction_Type" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <EntityType Name="RuleList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Group" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Number" Type="Int32" Nullable="false" />
+          <Property Name="Shipping_Country_Code" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+          <Property Name="Receiving_Country_Code" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+          <Property Name="Shipping_Company" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Receving_Company" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Shipping_PostalCode" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="Receiving_PostalCode" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="Responsible_Site" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="Paying_Site" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="Category" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Article_Number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Article_Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Transaction_Type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Currency" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Name="Invoice_Template" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="VAT" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <ComplexType Name="InvHedDetWithAdditionTransaction_Result2">
+          <Property Type="String" Name="Customer_Name" Nullable="true" MaxLength="1024" />
+          <Property Type="String" Name="Paying_Site" Nullable="false" MaxLength="450" />
+          <Property Type="String" Name="Invoice_Template" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Category" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="Currency_Code" Nullable="true" MaxLength="3" />
+          <Property Type="String" Name="Article_Number" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Article_Description" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="No_Of_Transactions" Nullable="true" />
+          <Property Type="Decimal" Name="Price" Nullable="true" Precision="38" Scale="4" />
+          <Property Type="Decimal" Name="VAT" Nullable="true" Precision="5" Scale="2" />
+          <Property Type="Decimal" Name="Net" Nullable="true" Precision="38" Scale="6" />
+          <Property Type="Int32" Name="File_Id" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="Currency">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Url" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="BuyRate" Type="Decimal" Precision="14" Scale="4" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SellRate" Type="Decimal" Precision="14" Scale="4" />
+          <Property Name="Unit" Type="Decimal" Nullable="false" Precision="16" Scale="2" />
+        </EntityType>
+        <EntityType Name="Invoice">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Customer_Name" Type="String" Nullable="false" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="Paying_Site" Type="String" Nullable="false" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="Invoice_Template" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Responsible_Site" Type="String" Nullable="false" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="Category" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Currency_Code" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Name="Article_Number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Article_Description" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Total_Number_Of_Packages" Type="Decimal" Nullable="false" Precision="16" Scale="2" />
+          <Property Name="No_Of_Transactions" Type="Int32" />
+          <Property Name="Price" Type="Decimal" Precision="14" Scale="4" />
+          <Property Name="VAT" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="Net" Type="Decimal" Precision="14" Scale="4" />
+          <Property Name="Consignment_Number" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Fortnox_Invoice_Id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="File_Id" Type="Int32" Nullable="false" />
+          <Property Name="ExportedItem_Id" Type="Int64" Nullable="false" />
+          <Property Name="Transaction_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Currency_BuyRate" Type="Decimal" Precision="14" Scale="6" />
+        </EntityType>
+        <ComplexType Name="sp_ReorderNumber_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="Int32" Name="Number" Nullable="false" />
+        </ComplexType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+          <FunctionImportMapping FunctionImportName="sp_GetInvalidInvoiceHeaderDetail" FunctionName="Model.Store.sp_GetInvalidInvoiceHeaderDetail">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Model.sp_GetInvalidInvoiceHeaderDetail_Result">
+                <ScalarProperty Name="FortnoxList" ColumnName="FortnoxList" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_GetInvoiceRawData" FunctionName="Model.Store.sp_GetInvoiceRawData">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Model.sp_GetInvoiceRawData_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="File_Id" ColumnName="File_Id" />
+                <ScalarProperty Name="Consignment_Number" ColumnName="Consignment_Number" />
+                <ScalarProperty Name="Shipping_Company_Name" ColumnName="Shipping_Company_Name" />
+                <ScalarProperty Name="Shipping_Postal_Code" ColumnName="Shipping_Postal_Code" />
+                <ScalarProperty Name="Shipping_City" ColumnName="Shipping_City" />
+                <ScalarProperty Name="Shipping_Country_Code" ColumnName="Shipping_Country_Code" />
+                <ScalarProperty Name="Receiving_Company_Name" ColumnName="Receiving_Company_Name" />
+                <ScalarProperty Name="Receiving_Postal_Code" ColumnName="Receiving_Postal_Code" />
+                <ScalarProperty Name="Receiving_City" ColumnName="Receiving_City" />
+                <ScalarProperty Name="Receiving_Country_Code" ColumnName="Receiving_Country_Code" />
+                <ScalarProperty Name="Total_Number_Of_Packages" ColumnName="Total_Number_Of_Packages" />
+                <ScalarProperty Name="Total_Weight" ColumnName="Total_Weight" />
+                <ScalarProperty Name="Total_Volume" ColumnName="Total_Volume" />
+                <ScalarProperty Name="Total_Loading_Meters" ColumnName="Total_Loading_Meters" />
+                <ScalarProperty Name="Total_Pallet_Space" ColumnName="Total_Pallet_Space" />
+                <ScalarProperty Name="Date_Registered" ColumnName="Date_Registered" />
+                <ScalarProperty Name="Shippers_Reference" ColumnName="Shippers_Reference" />
+                <ScalarProperty Name="Consignee_Reference" ColumnName="Consignee_Reference" />
+                <ScalarProperty Name="Calculated_Price" ColumnName="Calculated_Price" />
+                <ScalarProperty Name="Paying_Site" ColumnName="Paying_Site" />
+                <ScalarProperty Name="Responsible_Site" ColumnName="Responsible_Site" />
+                <ScalarProperty Name="Invoice_Template" ColumnName="Invoice_Template" />
+                <ScalarProperty Name="Customer_Name" ColumnName="Customer_Name" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Currency_Code" ColumnName="Currency_Code" />
+                <ScalarProperty Name="Article_Number" ColumnName="Article_Number" />
+                <ScalarProperty Name="Article_Description" ColumnName="Article_Description" />
+                <ScalarProperty Name="No_Of_Transactions" ColumnName="No_Of_Transactions" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="VAT" ColumnName="VAT" />
+                <ScalarProperty Name="Net" ColumnName="Net" />
+                <ScalarProperty Name="Fortnox_Invoice_Id" ColumnName="Fortnox_Invoice_Id" />
+                <ScalarProperty Name="ExportedItem_Id" ColumnName="ExportedItem_Id" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="Articles">
+            <EntityTypeMapping TypeName="Model.Article">
+              <MappingFragment StoreEntitySet="Article">
+                <ScalarProperty Name="Expired" ColumnName="Expired" />
+                <ScalarProperty Name="VAT" ColumnName="VAT" />
+                <ScalarProperty Name="Unit" ColumnName="Unit" />
+                <ScalarProperty Name="PurchasePrice" ColumnName="PurchasePrice" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ArticleNumber" ColumnName="ArticleNumber" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="Model.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="Model.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="Model.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="Model.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="Model.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="HoldingCompany" ColumnName="HoldingCompany" />
+                <ScalarProperty Name="OrganizationNumber" ColumnName="OrganizationNumber" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CustomerNumber" ColumnName="CustomerNumber" />
+                <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Files">
+            <EntityTypeMapping TypeName="Model.File">
+              <MappingFragment StoreEntitySet="File">
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="Locked" ColumnName="Locked" />
+                <ScalarProperty Name="ExportedDateTime" ColumnName="ExportedDateTime" />
+                <ScalarProperty Name="ImportedDateTime" ColumnName="ImportedDateTime" />
+                <ScalarProperty Name="uploadedDateTime" ColumnName="uploadedDateTime" />
+                <ScalarProperty Name="exported" ColumnName="exported" />
+                <ScalarProperty Name="rules_applied" ColumnName="rules_applied" />
+                <ScalarProperty Name="group_customer" ColumnName="group_customer" />
+                <ScalarProperty Name="remarks" ColumnName="remarks" />
+                <ScalarProperty Name="Group" ColumnName="Group" />
+                <ScalarProperty Name="filename" ColumnName="filename" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ImportedItems">
+            <EntityTypeMapping TypeName="Model.ImportedItem">
+              <MappingFragment StoreEntitySet="ImportedItem">
+                <ScalarProperty Name="Calculated_Price" ColumnName="Calculated_Price" />
+                <ScalarProperty Name="Consignee_Reference" ColumnName="Consignee_Reference" />
+                <ScalarProperty Name="Shippers_Reference" ColumnName="Shippers_Reference" />
+                <ScalarProperty Name="Date_Registered" ColumnName="Date_Registered" />
+                <ScalarProperty Name="Total_Pallet_Space" ColumnName="Total_Pallet_Space" />
+                <ScalarProperty Name="Total_Loading_Meters" ColumnName="Total_Loading_Meters" />
+                <ScalarProperty Name="Total_Volume" ColumnName="Total_Volume" />
+                <ScalarProperty Name="Total_Weight" ColumnName="Total_Weight" />
+                <ScalarProperty Name="Total_Number_Of_Packages" ColumnName="Total_Number_Of_Packages" />
+                <ScalarProperty Name="Receiving_Country_Code" ColumnName="Receiving_Country_Code" />
+                <ScalarProperty Name="Receiving_City" ColumnName="Receiving_City" />
+                <ScalarProperty Name="Receiving_Postal_Code" ColumnName="Receiving_Postal_Code" />
+                <ScalarProperty Name="Receiving_Company_Name" ColumnName="Receiving_Company_Name" />
+                <ScalarProperty Name="Shipping_Country_Code" ColumnName="Shipping_Country_Code" />
+                <ScalarProperty Name="Shipping_City" ColumnName="Shipping_City" />
+                <ScalarProperty Name="Shipping_Postal_Code" ColumnName="Shipping_Postal_Code" />
+                <ScalarProperty Name="Shipping_Company_Name" ColumnName="Shipping_Company_Name" />
+                <ScalarProperty Name="Consignment_Number" ColumnName="Consignment_Number" />
+                <ScalarProperty Name="File_Id" ColumnName="File_Id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="Model.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetUser">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+            <EndProperty Name="AspNetRole">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="Settings">
+            <EntityTypeMapping TypeName="Model.Setting">
+              <MappingFragment StoreEntitySet="Settings">
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ExportedItems">
+            <EntityTypeMapping TypeName="Model.ExportedItem">
+              <MappingFragment StoreEntitySet="ExportedItem">
+                <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+                <ScalarProperty Name="Calculated_Price" ColumnName="Calculated_Price" />
+                <ScalarProperty Name="Consignee_Reference" ColumnName="Consignee_Reference" />
+                <ScalarProperty Name="Shippers_Reference" ColumnName="Shippers_Reference" />
+                <ScalarProperty Name="Date_Registered" ColumnName="Date_Registered" />
+                <ScalarProperty Name="Total_Pallet_Space" ColumnName="Total_Pallet_Space" />
+                <ScalarProperty Name="Total_Loading_Meters" ColumnName="Total_Loading_Meters" />
+                <ScalarProperty Name="Total_Volume" ColumnName="Total_Volume" />
+                <ScalarProperty Name="Total_Weight" ColumnName="Total_Weight" />
+                <ScalarProperty Name="Total_Number_Of_Packages" ColumnName="Total_Number_Of_Packages" />
+                <ScalarProperty Name="Receiving_Country_Code" ColumnName="Receiving_Country_Code" />
+                <ScalarProperty Name="Receiving_City" ColumnName="Receiving_City" />
+                <ScalarProperty Name="Receiving_Postal_Code" ColumnName="Receiving_Postal_Code" />
+                <ScalarProperty Name="Receiving_Company_Name" ColumnName="Receiving_Company_Name" />
+                <ScalarProperty Name="Shipping_Country_Code" ColumnName="Shipping_Country_Code" />
+                <ScalarProperty Name="Shipping_City" ColumnName="Shipping_City" />
+                <ScalarProperty Name="Shipping_Postal_Code" ColumnName="Shipping_Postal_Code" />
+                <ScalarProperty Name="Shipping_Company_Name" ColumnName="Shipping_Company_Name" />
+                <ScalarProperty Name="Consignment_Number" ColumnName="Consignment_Number" />
+                <ScalarProperty Name="File_Id" ColumnName="File_Id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_GetInvHedDetWithAdditionTransaction" FunctionName="Model.Store.sp_GetInvHedDetWithAdditionTransaction">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Model.sp_GetInvHedDetWithAdditionTransaction_Result">
+                <ScalarProperty Name="Customer_Name" ColumnName="Customer_Name" />
+                <ScalarProperty Name="Paying_Site" ColumnName="Paying_Site" />
+                <ScalarProperty Name="Invoice_Template" ColumnName="Invoice_Template" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Currency_Code" ColumnName="Currency_Code" />
+                <ScalarProperty Name="Article_Number" ColumnName="Article_Number" />
+                <ScalarProperty Name="Article_Description" ColumnName="Article_Description" />
+                <ScalarProperty Name="No_Of_Transactions" ColumnName="No_Of_Transactions" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="VAT" ColumnName="VAT" />
+                <ScalarProperty Name="Net" ColumnName="Net" />
+                <ScalarProperty Name="File_Id" ColumnName="File_Id" />
+                <ScalarProperty Name="PriceConversion" ColumnName="PriceConversion" />
+                <ScalarProperty Name="NetConversion" ColumnName="NetConversion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="InvoiceHeaderDetail" FunctionName="Model.Store.InvoiceHeaderDetail">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Model.InvoiceHeaderDetail_Result1">
+                <ScalarProperty Name="Customer_Name" ColumnName="Customer_Name" />
+                <ScalarProperty Name="Paying_Site" ColumnName="Paying_Site" />
+                <ScalarProperty Name="Invoice_Template" ColumnName="Invoice_Template" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Currency_Code" ColumnName="Currency_Code" />
+                <ScalarProperty Name="Article_Number" ColumnName="Article_Number" />
+                <ScalarProperty Name="Article_Description" ColumnName="Article_Description" />
+                <ScalarProperty Name="File_Id" ColumnName="File_Id" />
+                <ScalarProperty Name="No_Of_Transactions" ColumnName="No_Of_Transactions" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="VAT" ColumnName="VAT" />
+                <ScalarProperty Name="Net" ColumnName="Net" />
+                <ScalarProperty Name="Transaction_Type" ColumnName="Transaction_Type" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="RuleLists">
+            <EntityTypeMapping TypeName="Model.RuleList">
+              <MappingFragment StoreEntitySet="RuleList">
+                <ScalarProperty Name="VAT" ColumnName="VAT" />
+                <ScalarProperty Name="Invoice_Template" ColumnName="Invoice_Template" />
+                <ScalarProperty Name="Currency" ColumnName="Currency" />
+                <ScalarProperty Name="Transaction_Type" ColumnName="Transaction_Type" />
+                <ScalarProperty Name="Article_Description" ColumnName="Article_Description" />
+                <ScalarProperty Name="Article_Number" ColumnName="Article_Number" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Paying_Site" ColumnName="Paying_Site" />
+                <ScalarProperty Name="Responsible_Site" ColumnName="Responsible_Site" />
+                <ScalarProperty Name="Receiving_PostalCode" ColumnName="Receiving_PostalCode" />
+                <ScalarProperty Name="Shipping_PostalCode" ColumnName="Shipping_PostalCode" />
+                <ScalarProperty Name="Receving_Company" ColumnName="Receving_Company" />
+                <ScalarProperty Name="Shipping_Company" ColumnName="Shipping_Company" />
+                <ScalarProperty Name="Receiving_Country_Code" ColumnName="Receiving_Country_Code" />
+                <ScalarProperty Name="Shipping_Country_Code" ColumnName="Shipping_Country_Code" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Group" ColumnName="Group" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="InvHedDetWithAdditionTransaction" FunctionName="Model.Store.InvHedDetWithAdditionTransaction">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Model.InvHedDetWithAdditionTransaction_Result2">
+                <ScalarProperty Name="Customer_Name" ColumnName="Customer_Name" />
+                <ScalarProperty Name="Paying_Site" ColumnName="Paying_Site" />
+                <ScalarProperty Name="Invoice_Template" ColumnName="Invoice_Template" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Currency_Code" ColumnName="Currency_Code" />
+                <ScalarProperty Name="Article_Number" ColumnName="Article_Number" />
+                <ScalarProperty Name="Article_Description" ColumnName="Article_Description" />
+                <ScalarProperty Name="No_Of_Transactions" ColumnName="No_Of_Transactions" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="VAT" ColumnName="VAT" />
+                <ScalarProperty Name="Net" ColumnName="Net" />
+                <ScalarProperty Name="File_Id" ColumnName="File_Id" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="Currencies">
+            <EntityTypeMapping TypeName="Model.Currency">
+              <MappingFragment StoreEntitySet="Currency">
+                <ScalarProperty Name="Unit" ColumnName="Unit" />
+                <ScalarProperty Name="SellRate" ColumnName="SellRate" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="BuyRate" ColumnName="BuyRate" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Invoices">
+            <EntityTypeMapping TypeName="Model.Invoice">
+              <MappingFragment StoreEntitySet="Invoice">
+                <ScalarProperty Name="Currency_BuyRate" ColumnName="Currency_BuyRate" />
+                <ScalarProperty Name="Transaction_Type" ColumnName="Transaction_Type" />
+                <ScalarProperty Name="ExportedItem_Id" ColumnName="ExportedItem_Id" />
+                <ScalarProperty Name="File_Id" ColumnName="File_Id" />
+                <ScalarProperty Name="Fortnox_Invoice_Id" ColumnName="Fortnox_Invoice_Id" />
+                <ScalarProperty Name="Consignment_Number" ColumnName="Consignment_Number" />
+                <ScalarProperty Name="Net" ColumnName="Net" />
+                <ScalarProperty Name="VAT" ColumnName="VAT" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="No_Of_Transactions" ColumnName="No_Of_Transactions" />
+                <ScalarProperty Name="Total_Number_Of_Packages" ColumnName="Total_Number_Of_Packages" />
+                <ScalarProperty Name="Article_Description" ColumnName="Article_Description" />
+                <ScalarProperty Name="Article_Number" ColumnName="Article_Number" />
+                <ScalarProperty Name="Currency_Code" ColumnName="Currency_Code" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Responsible_Site" ColumnName="Responsible_Site" />
+                <ScalarProperty Name="Invoice_Template" ColumnName="Invoice_Template" />
+                <ScalarProperty Name="Paying_Site" ColumnName="Paying_Site" />
+                <ScalarProperty Name="Customer_Name" ColumnName="Customer_Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_ReorderNumber" FunctionName="Model.Store.sp_ReorderNumber">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Model.sp_ReorderNumber_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

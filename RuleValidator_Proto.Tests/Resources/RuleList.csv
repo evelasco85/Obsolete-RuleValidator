@@ -1,0 +1,21 @@
+id,group_customer,Receiving_Country_Code,Shipping_Country_Code,Shipping_Company,Receving_Company,Shipping_PostalCode,Receiving_PostalCode
+3,LTSHoldings,SE,SE,*,LTS*,*,21124,3,LTSHoldings,1,SE,SE,*,LTS*,*,21124,MLM31,MLM31,Domestic,10,SEK,MLM31 Domestic,Domestic VAT,0
+4,LTSHoldings,SE,SE,*,*,*,*,4,LTSHoldings,2,SE,SE,*,*,*,*,MLM20,MLM20,Domestic,10,SEK,MLM20 Domestic,Domestic VAT,0
+5,LTSHoldings,SE,EU,*,LTS*,*,21124,5,LTSHoldings,3,EU,SE,*,LTS*,*,21124,MLM31,MLM31,Import,20,SEK,MLM31 Import,Import VAT,0
+6,LTSHoldings,SE,EU,*,*,*,*,6,LTSHoldings,4,EU,SE,*,*,*,*,MLM20,MLM20,Import,20,SEK,MLM20 Import,Import VAT,0
+7,LTSHoldings,SE,* ,*,LTS*,*,21124,7,LTSHoldings,5,* ,SE,*,LTS*,*,21124,MLM31,MLM31,Import,21,SEK,MLM31 Import,Import,0
+1006,LTSHoldings,SE,* ,*,*,*,*,1006,LTSHoldings,6,* ,SE,*,*,*,*,MLM20,MLM20,Import,21,SEK,MLM20 Import,Import,0
+1017,LTSHoldings,EE,* ,*,*,*,*,1017,LTSHoldings,7,* ,EE,*,*,*,*,TLN20,MLM20,Export,30,SEK,MLM20 Export,Export VAT,0
+1018,LTSHoldings,LV,* ,*,*,*,*,1018,LTSHoldings,8,* ,LV,*,*,*,*,RIX20,MLM20,Export,30,SEK,MLM20 Export,Export VAT,0
+1019,LTSHoldings,LT,* ,*,*,*,*,1019,LTSHoldings,9,* ,LT,*,*,*,*,VLS20,MLM20,Export,30,SEK,MLM20 Export,Export VAT,0
+1020,LTSHoldings,DK,* ,*,*,*,*,1020,LTSHoldings,10,* ,DK,*,*,*,*,RSK20,RSK20,Import,21,SEK,RSK20,Import,0
+1021,LTSHoldings,NO,* ,*,*,*,*,1021,LTSHoldings,11,* ,NO,*,*,*,*,DRM20,DRM20,Import,21,SEK,DRM20,Import,0
+1022,LTSHoldings,FI,FI,*,*,*,*,1022,LTSHoldings,12,FI,FI,*,*,*,*,VNT20,VNT20,Domestic,11,EUR,VNT20,NULL,0
+1023,LTSHoldings,FI,* ,*,*,*,*,1023,LTSHoldings,13,* ,FI,*,*,*,*,VNT20,VNT20,Import,21,EUR,VNT20,Import,0
+1024,LTSHoldings,DE,* ,*,*,*,*,1024,LTSHoldings,14,* ,DE,*,*,*,*,STU30,STU30,Import,21,EUR,STU30,Import,0
+1025,LTSHoldings,US,US,*,*,*,*,1025,LTSHoldings,15,US,US,*,*,*,*,SLC30,SLC30,Domestic,11,USD,SLC30,NULL,0
+1026,LTSHoldings,US,* ,*,*,*,*,1026,LTSHoldings,16,* ,US,*,*,*,*,SLC30,SLC30,Import,21,USD,SLC30,Import,0
+1027,LTSHoldings,TW,* ,*,*,*,*,1027,LTSHoldings,17,* ,TW,*,*,*,*,APC32,MLM31,Import,21,SEK,MLM31 Import,Import,0
+1028,LTSHoldings,EU,SE,*,*,*,*,1028,LTSHoldings,18,SE,EU,*,*,*,*,MLM30,MLM30,Export,30,SEK,MLM30 Export,Export VAT,0
+1029,LTSHoldings,* ,SE,*,*,*,*,1029,LTSHoldings,19,SE,* ,*,*,*,*,MLM30,MLM30,Export,31,SEK,MLM30 Export,Export,0
+1030,LTSHoldings,* ,* ,*,*,*,*,1030,LTSHoldings,20,* ,* ,*,*,*,*,SLC30,SLC30,Export,31,USD,SLC30,Export,0
